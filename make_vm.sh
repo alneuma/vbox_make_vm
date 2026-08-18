@@ -2,12 +2,12 @@
 
 name=linux_vm       # name of your vm
 ostype=Linux_64     # "VBoxManage list ostypes" with grep to find what you need
-num_cpus=4          # cpus
-memory=4096         # ram
+num_cpus=2          # cpus
+memory=2048         # ram
 vram=128            # video ram
-hdsize=10240        # size of harddrive
+hdsize=8192         # size of harddrive
 ssh_map_host=2222   # port to use ssh on host
-ssh_map_vm=2222     # port to use ssh on vm
+ssh_map_vm=22       # port to use ssh on vm
 vmhdpath=/sgoinfre/goinfre/Perso/your_intra/images  # path to new image
 iso=/goinfre/your_intra/cool_linux_distro.iso       # path to install.iso
 
