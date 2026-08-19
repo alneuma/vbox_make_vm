@@ -10,7 +10,7 @@ ostype=Linux_64     # VirtualBox comes with different IDs for different OS types
 
 num_cpus=2          # How many CPUs would you need for a VM without GUI that does not do any heavy calculations?
 
-memory=2048         # How RAM would you need for a VM without GUI that does not do any heavy calculations?
+memory=2048         # How much RAM would you need for a VM without GUI that does not do any heavy calculations?
 
 vram=128            # video ram
 
