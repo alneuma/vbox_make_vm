@@ -1,15 +1,34 @@
 #!/bin/bash
 
-name=linux_vm       # name of your vm
-ostype=Linux_64     # "VBoxManage list ostypes" with grep to find what you need
-num_cpus=2          # cpus
-memory=2048         # ram
+# Before you run the script adjust the following variables to suite your needs.
+
+name=linux_vm       # name of your vm can be chosen freely
+
+ostype=Linux_64     # VirtualBox comes with different IDs for different OS types use the of the linux distro you are planning to install
+                    # You can use "VBoxManage list ostypes" to see all the IDs and pipe the output into grep to find what you need
+                    # hint: An ID for Rocky Linux does not exist, but there is something very similar
+
+num_cpus=2          # How many CPUs would you need for a VM without GUI that does not do any heavy calculations?
+
+memory=2048         # How RAM would you need for a VM without GUI that does not do any heavy calculations?
+
 vram=128            # video ram
-hdsize=8192         # size of harddrive
-ssh_map_host=2222   # port to use ssh on host
-ssh_map_vm=22       # port to use ssh on vm
-vmhdpath=/sgoinfre/goinfre/Perso/your_intra/images  # path to new image
-iso=/goinfre/your_intra/cool_linux_distro.iso       # path to install.iso
+
+hdsize=8192         # disk size
+                    # What is the minimum disk size needed for the OS you want to install?
+ 
+# The VMs networking will be setup with NAT.
+# This means that a specific port on the host is mapped to a specific port on the VM.
+# You can keep the defaults and everything should work just fine.
+# Questions to think about later:
+# Why do we use port 22 on the VM? If we would use a different port what could go wrong?
+ssh_map_host=2222   # host port
+ssh_map_vm=22       # VM port
+
+vmhdpath=/sgoinfre/goinfre/Perso/your_intra/images  # path to new VM image
+                                                    # This will need a lot of space and should be persistent between reboots
+
+iso=/goinfre/your_intra/cool_linux_distro.iso       # path to your installation ISO
 
 # check if vm already exists
 if VBoxManage list vms | grep -q "${name}" 2> /dev/null; then
